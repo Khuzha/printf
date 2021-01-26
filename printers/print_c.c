@@ -36,6 +36,7 @@ static void	make_str(struct data *data, char c, int *count)
 
 int			print_c(struct data *data, char c, int *count)
 {
+	data->apply_acc = 0;
 	make_str(data, c, count);
 	return (1);
 }

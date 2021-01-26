@@ -58,7 +58,7 @@ void		handle_if_type(char c, struct data *data)
 {
 	char	*types;
 
-	types = "cspdiuxX";
+	types = "%cspdiuxX";
 	while (*types)
 	{
 		if (*types == c)
@@ -83,6 +83,8 @@ int			print_res(struct data *data, va_list ap, int *count)
 		return (print_d(data, va_arg(ap, int), count));
 	if (data->type == 'c')
 		return (print_c(data, va_arg(ap, int), count));
+	if (data->type == '%')
+		return (print_c(data, '%', count));
 	return (0);
 }
 

@@ -3,8 +3,8 @@
 
 int main()
 {
-	char *str = "|%.0c|\n";
-	char c = 'c';
-	ft_printf(str, c);
-	printf(str, c);
+	// char *str = "|%%|\n";
+	// char c = 'c';
+	ft_printf("|%012.3c|\n", 'c');
+	   printf("|%012.3c|\n", 'c');
 }
