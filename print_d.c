@@ -1,14 +1,5 @@
 #include "printf.h"
 
-static void	print_minus(struct data *data, char **str, int *len, int *count)
-{
-	ft_putchar_fd('-', 1);
-	data->width ? data->width-- : 0;
-	(*count)++;
-	(*str)++;
-	(*len)--;
-}
-
 static int	get_str_len(struct data *data, char *str, int len)
 {
 	if (data->apply_acc && !data->acc && *str == '0' && !str[1])
@@ -75,6 +66,7 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	put_numbers(data, str, src, len, full_len);
 	// printf("\n|%s|\n", str);
 	ft_putstr_fd(str, 1);
+	free(str);
 }
 
 int			print_d(struct data *data, int value, int *count)

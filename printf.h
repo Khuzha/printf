@@ -20,6 +20,7 @@ typedef struct data
 } t_data;
 
 int		print_d(struct data *data, int value, int *count);
+int		print_c(struct data *data, char c, int *count);
 // int		print_final(struct data *data, char *str, int len, int *count);
 int		ft_printf(const char *format, ...);
 int		count_digits(long n);
