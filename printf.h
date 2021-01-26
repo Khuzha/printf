@@ -25,5 +25,7 @@ int		print_c(struct data *data, char c, int *count);
 int		ft_printf(const char *format, ...);
 int		count_digits(long n);
 
+void	print_data(struct data *data);
+
 
 #endif

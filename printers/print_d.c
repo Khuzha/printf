@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "../printf.h"
 
 static int	get_str_len(struct data *data, char *str, int len)
 {

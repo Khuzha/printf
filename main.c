@@ -3,9 +3,8 @@
 
 int main()
 {
-	char *str = "|%0.5c|\n";
-	int num = 0;
+	char *str = "|%.0c|\n";
 	char c = 'c';
-	// ft_printf(str, num);
+	ft_printf(str, c);
 	printf(str, c);
 }

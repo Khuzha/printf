@@ -67,15 +67,10 @@ void		handle_if_type(char c, struct data *data)
 	}
 }
 
-int			printer(struct data *data)
-{
-	printf("type = %c,\n flag_minus = %d,\n flag_zero = %d,\n width = %d,\n acc = %d\n", data->type, data->flag_minus, data->flag_zero, data->width, data->acc);
-	return (0);
-}
-
 void		initialize_data(t_data *src)
 {
 	src->type = '0';
+	src->apply_acc = 0;
 	src->flag_minus = 0;
 	src->flag_zero = 0;
 	src->width = 0;
@@ -87,7 +82,7 @@ int			print_res(struct data *data, va_list ap, int *count)
 	if (data->type == 'd' || data->type == 'i')
 		return (print_d(data, va_arg(ap, int), count));
 	if (data->type == 'c')
-		return (print_c(data, va_arg(ap, char), count));
+		return (print_c(data, va_arg(ap, int), count));
 	return (0);
 }
 
@@ -150,11 +145,11 @@ int		ft_printf(const char *format, ...)
 	return (0);
 }
 
-int main()
-{
-	char *str = "|%10c|\n";
-	int num = -239810;
-	char c = 'c';
-	ft_printf(str, c);
-	printf(str, c);
-}
+// int main()
+// {
+// 	char *str = "|%10c|\n";
+// 	int num = -239810;
+// 	char c = 'c';
+// 	ft_printf(str, c);
+// 	printf(str, c);
+// }

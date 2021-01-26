@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "../printf.h"
 
 static int	get_str_len(struct data *data, char c)
 {
@@ -29,9 +29,7 @@ static void	make_str(struct data *data, char c, int *count)
 	if (!(str = malloc(sizeof(char) * (full_len + 1))))
 		return ;
 	inite_str(data, str, full_len + 1);
-	printf("full_len = %d\n", full_len);
-	str[data->flag_minus ? full_len - 1 : 0] = c;
-	// printf("\n|%s|\n", str);
+	str[data->flag_minus ? 0 : full_len - 1] = c;
 	ft_putstr_fd(str, 1);
 	free(str);
 }
