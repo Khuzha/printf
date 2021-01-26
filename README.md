@@ -1,2 +1,2 @@
 # printf
-My own realization of printf on C lang with the minimum external functions
+My realization of printf on C lang with the minimum external functions
