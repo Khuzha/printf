@@ -61,10 +61,8 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	if (!(str = malloc(sizeof(char) * (full_len + 1))))
 		return ;
 	inite_str(data, str, full_len + 1);
-	// printf("full_len = %d, strlen = %lu\n", full_len, ft_strlen(str));
 	handle_acc(data, str, full_len);
 	put_numbers(data, str, src, len, full_len);
-	// printf("\n|%s|\n", str);
 	ft_putstr_fd(str, 1);
 	free(str);
 }
