@@ -6,7 +6,7 @@
 #    By: zskeeter <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 18:40:15 by zskeeter          #+#    #+#              #
-#    Updated: 2021/01/27 03:40:20 by zskeeter         ###   ########.fr        #
+#    Updated: 2021/01/27 03:51:20 by zskeeter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,5 +39,4 @@ t: fclean all
 	gcc -Wall -Wextra -Werror -g main.c libftprintf.a
 
 dbg: fclean
-	make -C libft
-	gcc -Wall -Wextra -Werror -g main.c $(SRCS) libft/libft.a
+	gcc -Wall -Wextra -Werror -g main.c $(SRCS) libft/ft_itoa.c libft/ft_atoi.c libft/ft_strlen.c libft/ft_substr.c libft/ft_isdigit.c libft/ft_memcpy.c libft/ft_memset.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c

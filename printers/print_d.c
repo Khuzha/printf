@@ -31,7 +31,7 @@ static void	handle_acc(struct data *data, char *str, char *src, int len)
 	if (data->flag_minus)
 		ft_memset(str, '0', data->acc + (*src == '-' ? 1 : 0));
 	if (!data->flag_minus)
-		ft_memset(&str[len - data->acc], '0', data->acc + (*src == '-' ? 1 : 0));
+		ft_memset(&str[len - data->acc], '0', data->acc);
 }
 
 static void	put_numbers(struct data *data, char *res, char *src, int len, int full_len)
@@ -67,11 +67,13 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	int		full_len;
 
 	full_len = get_str_len(data, src, len);
-	printf("full_len = %d\n", full_len);
+	// printf("full_len = %d\n", full_len);
 	if (!(str = malloc(sizeof(char) * (full_len + 1))))
 		return ;
 	inite_str(data, str, full_len + 1);
+	// printf("bef acc = |%s|\n", str);
 	handle_acc(data, str, src, full_len);
+	// printf("aft acc = |%s|\n", str);
 	put_numbers(data, str, src, len, full_len);
 	ft_putstr_fd(str, 1);
 	count++;
