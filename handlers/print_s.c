@@ -18,7 +18,6 @@ static void	inite_str(struct data *data, char *str, int len)
 		i++;
 	}
 	str[i - 1] = '\0';
-	// printf("str in inite = \n|%s|\n", str);
 }
 
 static void	put_str_to_line(struct data *data, char *res, char *src, int len, int full_len)

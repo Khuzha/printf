@@ -6,13 +6,13 @@
 #    By: zskeeter <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 18:40:15 by zskeeter          #+#    #+#              #
-#    Updated: 2021/01/27 03:51:20 by zskeeter         ###   ########.fr        #
+#    Updated: 2021/01/27 05:00:16 by zskeeter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 SRCS =	printf.c utils.c \
-		printers/print_d.c printers/print_c.c printers/print_s.c
+		handlers/print_d.c handlers/print_c.c handlers/print_s.c handlers/print_p.c
 
 SRCOBJS = $(SRCS:.c=.o)
 

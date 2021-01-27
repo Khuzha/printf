@@ -87,6 +87,8 @@ int			print_res(struct data *data, va_list ap, int *count)
 		return (print_c(data, '%', count));
 	if (data->type == 's')
 		return (print_s(data, va_arg(ap, char *), count));
+	if (data->type == 'p')
+		return (print_p(data, va_arg(ap, unsigned int *), count));
 	return (0);
 }
 
