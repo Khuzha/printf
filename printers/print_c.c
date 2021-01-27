@@ -1,6 +1,6 @@
 #include "../printf.h"
 
-static int	get_str_len(struct data *data, char c)
+static int	get_str_len(struct data *data)
 {
 	if (data->width)
 		return (data->width);
@@ -25,12 +25,13 @@ static void	make_str(struct data *data, char c, int *count)
 	char	*str;
 	int		full_len;
 
-	full_len = get_str_len(data, c);
+	full_len = get_str_len(data);
 	if (!(str = malloc(sizeof(char) * (full_len + 1))))
 		return ;
 	inite_str(data, str, full_len + 1);
 	str[data->flag_minus ? 0 : full_len - 1] = c;
 	ft_putstr_fd(str, 1);
+	count++;
 	free(str);
 }
 
