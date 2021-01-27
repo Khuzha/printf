@@ -6,7 +6,7 @@
 #    By: zskeeter <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 18:40:15 by zskeeter          #+#    #+#              #
-#    Updated: 2021/01/27 00:43:46 by zskeeter         ###   ########.fr        #
+#    Updated: 2021/01/27 03:40:20 by zskeeter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,3 +37,7 @@ d:
 
 t: fclean all
 	gcc -Wall -Wextra -Werror -g main.c libftprintf.a
+
+dbg: fclean
+	make -C libft
+	gcc -Wall -Wextra -Werror -g main.c $(SRCS) libft/libft.a

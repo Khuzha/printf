@@ -54,7 +54,7 @@ static void	put_numbers(struct data *data, char *res, char *src, int len, int fu
 		else
 			res[full_len - (data->apply_acc && data->acc >= len ? data->acc + 1 : len)] = '-';
 		src++;
-		printf("str here = |%s|\n", res);
+		// printf("str here = |%s|\n", res);
 		// printf("minus ind = %d\n", full_len - (data->apply_acc && data->acc >= len ? data->acc + 1 : len));
 	}
 	// printf("i = %d\n", i);
@@ -74,6 +74,7 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	handle_acc(data, str, src, full_len);
 	put_numbers(data, str, src, len, full_len);
 	ft_putstr_fd(str, 1);
+	count++;
 	free(str);
 }
 
