@@ -3,8 +3,14 @@
 
 int main()
 {
-	// char *str = "|%%|\n";
-	// char c = 'c';
-	ft_printf("|%012.3c|\n", 'c');
-	   printf("|%012.3c|\n", 'c');
+	// char *format = "|%030s|\n";
+	// char *str = "hello world";
+	// // char c = 'c';
+	// ft_printf(format, str);
+	//    printf(format, str);
+
+	char *format = "|%.5d|\n";
+	int value = -5000;
+	ft_printf(format, value);
+	printf(format, value);
 }

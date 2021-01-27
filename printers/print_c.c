@@ -14,7 +14,7 @@ static void	inite_str(struct data *data, char *str, int len)
 	i = 0;
 	while (i < len)
 	{
-		str[i] = data->flag_zero && !data->apply_acc ? '0' : ' ';
+		str[i] = data->flag_zero ? '0' : ' ';
 		i++;
 	}
 	str[i - 1] = '\0';
