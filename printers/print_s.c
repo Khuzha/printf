@@ -18,7 +18,7 @@ static void	inite_str(struct data *data, char *str, int len)
 		i++;
 	}
 	str[i - 1] = '\0';
-	printf("str in inite = |%s|\n", str);
+	// printf("str in inite = \n|%s|\n", str);
 }
 
 static void	put_str_to_line(struct data *data, char *res, char *src, int len, int full_len)
@@ -26,12 +26,6 @@ static void	put_str_to_line(struct data *data, char *res, char *src, int len, in
 	int i;
 
 	i = (!data->flag_minus ? full_len - len : 0);
-	if (*src == '-')
-	{
-		// if ()
-		res[full_len - (data->apply_acc && data->acc >= len ? data->acc + 1 : len)] = '-';
-		src++;
-	}
 	ft_memcpy(&res[i], src, len);
 }
 
@@ -41,12 +35,11 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	int		full_len;
 
 	full_len = get_str_len(data, len);
-	printf("full_len = %d\n", full_len);
 	if (!(str = malloc(sizeof(char) * (full_len + 1))))
 		return ;
 	inite_str(data, str, full_len + 1);
 	put_str_to_line(data, str, src, len, full_len);
-	ft_putstr_fd(src, 1);
+	ft_putstr_fd(str, 1);
 	count++;
 	free(str);
 }
