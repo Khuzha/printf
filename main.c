@@ -9,7 +9,7 @@ int main()
 	// ft_printf(format, str);
 	//    printf(format, str);
 
-	char *format = "|%-15.13d|\n";
+	char *format = "|%0-15d|\n";
 	int value = -5000;
 	ft_printf(format, value);
 	printf(format, value);
