@@ -68,12 +68,12 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	inite_str(data, str, full_len + 1);
 	handle_acc(data, str, src, full_len);
 	put_numbers(data, str, src, len, full_len);
-	ft_putstr_fd(str, 1);
+	ft_putstr_count(str, count);
 	count++;
 	free(str);
 }
 
-int			print_x(struct data *data, unsigned int value, int *count, int big_letters)
+void			print_x(struct data *data, unsigned value, int *count, int big_letters)
 {
 	char	*str;
 	int		len;
@@ -88,5 +88,4 @@ int			print_x(struct data *data, unsigned int value, int *count, int big_letters
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
 	free(str);
-	return (0);
 }

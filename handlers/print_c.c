@@ -30,14 +30,13 @@ static void	make_str(struct data *data, char c, int *count)
 		return ;
 	inite_str(data, str, full_len + 1);
 	str[data->flag_minus ? 0 : full_len - 1] = c;
-	ft_putstr_fd(str, 1);
+	ft_putstr_count(str, count);
 	count++;
 	free(str);
 }
 
-int			print_c(struct data *data, char c, int *count)
+void			print_c(struct data *data, char c, int *count)
 {
 	data->apply_acc = 0;
 	make_str(data, c, count);
-	return (1);
 }

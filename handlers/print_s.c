@@ -38,17 +38,16 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 		return ;
 	inite_str(data, str, full_len + 1);
 	put_str_to_line(data, str, src, len, full_len);
-	ft_putstr_fd(str, 1);
+	ft_putstr_count(str, count);
 	count++;
 	free(str);
 }
 
-int			print_s(struct data *data, char *str, int *count)
+void			print_s(struct data *data, char *str, int *count)
 {
 	int len;
 
 	len = ft_strlen(str);
 	data->apply_acc = 0;
 	make_str(data, str, len, count);
-	return (1);
 }

@@ -42,3 +42,38 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 	reverse_str(&res, str, i);
 	return (res);
 }
+
+char	*ft_itoa_for_p(unsigned long long value, int big_letters)
+{
+	int i;
+	int mod;
+	char str[256];
+	char *res;
+
+	i = 0;
+	while (value)
+	{
+		mod = value % 16;
+		if (mod < 10)
+			str[i] = '0' + mod;
+		else
+			str[i] = mod - 10 + (big_letters ? 'A' : 'a');
+		value /= 16;
+		i++;
+	}
+	str[i] = '\0';
+	reverse_str(&res, str, i);
+	return (res);
+}
+
+void	ft_putstr_count(char *s, int *count)
+{
+	if (!s)
+		return ;
+	while (*s)
+	{
+		ft_putchar_fd(*s, 1);
+		s++;
+		(*count)++;
+	}
+}

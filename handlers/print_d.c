@@ -68,12 +68,12 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	inite_str(data, str, full_len + 1);
 	handle_acc(data, str, src, full_len);
 	put_numbers(data, str, src, len, full_len);
-	ft_putstr_fd(str, 1);
+	ft_putstr_count(str, count);
 	count++;
 	free(str);
 }
 
-int			print_d(struct data *data, int value, int *count)
+void			print_d(struct data *data, int value, int *count)
 {
 	char	*str;
 	int		len;
@@ -88,5 +88,4 @@ int			print_d(struct data *data, int value, int *count)
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
 	free(str);
-	return (count_digits(value) + value <= 0 ? 1 : 0);
 }

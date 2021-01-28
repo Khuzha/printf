@@ -77,7 +77,7 @@ void		initialize_data(t_data *src)
 	src->acc = 0;
 }
 
-int			print_res(struct data *data, va_list ap, int *count)
+void			print_res(struct data *data, va_list ap, int *count)
 {
 	if (data->type == 'd' || data->type == 'i')
 		return (print_d(data, va_arg(ap, int), count));
@@ -88,12 +88,11 @@ int			print_res(struct data *data, va_list ap, int *count)
 	if (data->type == 's')
 		return (print_s(data, va_arg(ap, char *), count));
 	if (data->type == 'p')
-		return (print_p(data, va_arg(ap, unsigned int *), count));
+		return (print_p(data, va_arg(ap, unsigned long long), count));
 	if (data->type == 'x' || data->type == 'X')
 		return (print_x(data, va_arg(ap, unsigned int), count, (data->type == 'X')));
 	// if (data->type == 'u')
 	// 	return (print_u(data, va_arg(ap, unsigned int), count));
-	return (0);
 }
 
 char	*parser(char *format, int *count, va_list ap)
@@ -152,7 +151,7 @@ int		ft_printf(const char *format, ...)
 	}
 
 	va_end(ap);
-	return (0);
+	return (count);
 }
 
 // int main()
