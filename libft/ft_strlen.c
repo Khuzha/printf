@@ -6,7 +6,7 @@
 /*   By: zskeeter <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 00:11:05 by zskeeter          #+#    #+#             */
-/*   Updated: 2020/11/02 00:22:56 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/28 03:48:17 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 		i++;
 	return (i);
 }
