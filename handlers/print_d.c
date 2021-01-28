@@ -84,6 +84,7 @@ void			print_d(struct data *data, int value, int *count)
 		data->apply_acc = 1;
 		data->width = 0;
 	}
+	print_data(data);
 	str = ft_itoa(value);
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
