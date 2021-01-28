@@ -9,9 +9,20 @@ int main()
 	// ft_printf(format, str);
 	//    printf(format, str);
 
-	char *format = "|%p|\n";
-	char *str = "hello world";
-	// int value = -5000;
-	ft_printf(format, str);
-	printf(format, str);
+	// char *format = "|%p|\n";
+	// char *str = "hello worldfosidfjsdifjdsiofjiosdjfoisdjfoijsdiofjosdijfoi";
+	// // int value = -5000;
+	// // ft_printf(format, str);
+	// printf(format, str);
+
+	// int num = 212231;
+	// printf("base_16 = |%s|\n", ft_itoa_16(num, 1));
+	// printf("base_16 = |%X|\n", num);
+
+	// printf("|%-.10x|\n", -12342452);
+
+	char *format = "|%x|\n";
+	int num = 21212121;
+	ft_printf(format, num);
+	printf(format, num);
 }
