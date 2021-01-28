@@ -21,7 +21,7 @@ int main()
 
 	// printf("|%-.10x|\n", -12342452);
 
-	char *format = "%018.12p|\n";
+	char *format = "%018.10p|\n";
 	// int *num;
 	ft_printf(format, format);
 	printf(format, format);

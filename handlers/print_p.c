@@ -43,13 +43,16 @@ static void	put_numbers(struct data *data, char *res, char *src, int len, int fu
 	if (data->apply_acc && !data->acc && *src == '0' && !src[1])
 		return ;
 	term = (*src == '-' ? 1 : 0);
-	printf("acc in zerox = %d\n", data->acc);
-	zerox_term = (full_len == len + 2 || (data->flag_zero && !data->apply_acc) || data->flag_minus ? 0 : full_len - (data->apply_acc && data->acc >= len ? data->acc + 1 : len) - 2);
+	print_data(data);
+	if (full_len == len + 2 || (data->flag_zero && !data->apply_acc) || data->flag_minus)
+		zerox_term = 0;
+	else
+		zerox_term = (full_len - (data->apply_acc && data->acc >= len ? data->acc : len) - 2);
 	if (data->flag_minus)
 		i = (data->apply_acc && data->acc >= len ? data->acc - len + 2 : 2);
 	else
-		i = full_len - len + 2;
-	printf("zerox = %d\n", zerox_term);
+		i = full_len - len;
+	zerox_term = (zerox_term < 0 ? 0 : zerox_term);
 	res[zerox_term] = '0';
 	res[zerox_term + 1] = 'x'; 
 	ft_memcpy(&res[i], src, len);
@@ -61,7 +64,6 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	int		full_len;
 
 	full_len = get_str_len(data, src, len);
-	printf("full_len = %d\n", full_len);
 	if (!(str = malloc(sizeof(char) * (full_len + 1))))
 		return ;
 	inite_str(data, str, full_len + 1);
