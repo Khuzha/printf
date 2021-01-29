@@ -52,6 +52,8 @@ void			print_s(struct data *data, char *str, int *count)
 {
 	int len;
 
+	if (!str)
+		str = "(null)";
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
 }
