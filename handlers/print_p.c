@@ -7,7 +7,7 @@ static int	get_str_len(struct data *data, char *str, int len)
 		if (data->apply_acc && (data->acc > data->width) && ((data->acc > len)))
 			return (data->acc + 2);
 		if (data->width > len)
-			return (data->width);
+			return (data->width > len + 2 ? data->width : data->width + 2 - (data->width - len));
 		return (len + 2);
 	}
 
