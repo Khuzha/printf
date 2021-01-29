@@ -40,6 +40,8 @@ void		parse_acc_or_w_varg(struct data *data, int is_acc, va_list ap)
 	value = va_arg(ap, int);
 	if (is_acc)
 	{
+		if (value < 0)
+			return ;
 		data->acc = value;
 		data->apply_acc = 1;
 	}
@@ -55,7 +57,7 @@ void		parse_acc_or_w_varg(struct data *data, int is_acc, va_list ap)
 	// print_data(data);
 }
 
-void		handle_if_type(char c, struct data *data)
+void		handle_if_type(char c, struct data *data, int *is_type)
 {
 	char	*types;
 
@@ -65,7 +67,11 @@ void		handle_if_type(char c, struct data *data)
 	while (*types)
 	{
 		if (*types == c)
+		{
 			data->type = c;
+			*is_type = 1;
+			return ;
+		}
 		types++;
 	}
 }
@@ -104,12 +110,14 @@ char	*parser(char *format, int *count, va_list ap)
 	size_t	i;
 	int		is_acc;
 	char c;
+	int		was_one;
 
 	i = 0;
 	is_acc = 0;
+	was_one = 0;
 	data = (t_data *)malloc(sizeof(t_data));
 	initialize_data(data);
-	while (is_format_char(format[i]))
+	while (is_format_char(format[i]) && !was_one)
 	{
 		c = format[i];
 		if ((format[i] == '0' && format[i + 1] == '-') || (format[i] == '-' && format[i + 1] == '0'))
@@ -125,7 +133,7 @@ char	*parser(char *format, int *count, va_list ap)
 		if (format[i] == '*')
 			parse_acc_or_w_varg(data, is_acc == 1 ? ((is_acc = 2)) : 0, ap);
 		format[i] == '.' && !is_acc ? is_acc = 1 : 0;
-		handle_if_type(format[i], data);
+		handle_if_type(format[i], data, &was_one);
 		i++;
 	}
 	print_res(data, ap, count);
@@ -149,10 +157,9 @@ int		ft_printf(const char *format, ...)
 			src = parser(src + 1, &count, ap);
 			continue;
 		}
-		ft_putchar_fd(*src, 1);
+		ft_putchar_count(*src, &count);
 		src++;
 	}
-
 	va_end(ap);
 	return (count);
 }

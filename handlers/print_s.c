@@ -2,8 +2,10 @@
 
 static int	get_str_len(struct data *data, int len)
 {
-	if (data->width > len)
+	if (data->width >= len)
 		return (data->width);
+	if (data->apply_acc)
+		return (data->acc);
 	return (len);
 }
 
@@ -24,8 +26,12 @@ static void	put_str_to_line(struct data *data, char *res, char *src, int len, in
 {
 	int i;
 
-	i = (!data->flag_minus ? full_len - len : 0);
-	ft_memcpy(&res[i], src, len);
+	// print_data(data);
+	if (data->flag_minus)
+		i = 0;
+	else
+		i = full_len - (data->apply_acc ? data->acc : len);
+	ft_memcpy(&res[i], src, (data->apply_acc ? data->acc : len));
 }
 
 static void	make_str(struct data *data, char *src, int len, int *count)
@@ -47,7 +53,7 @@ void			print_s(struct data *data, char *str, int *count)
 {
 	int len;
 
+	// print_data(data);
 	len = ft_strlen(str);
-	data->apply_acc = 0;
 	make_str(data, str, len, count);
 }

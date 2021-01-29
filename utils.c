@@ -66,6 +66,14 @@ char	*ft_itoa_for_p(unsigned long long value, int big_letters)
 	return (res);
 }
 
+int		ft_max_int(int a, int b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
+}
+
 void	ft_putstr_count(char *s, int *count)
 {
 	if (!s)
@@ -76,4 +84,10 @@ void	ft_putstr_count(char *s, int *count)
 		s++;
 		(*count)++;
 	}
+}
+
+void	ft_putchar_count(char c, int *count)
+{
+	ft_putchar_fd(c, 1);
+	(*count)++;
 }

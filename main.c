@@ -23,6 +23,6 @@ int main()
 
 	// char *format = "%018.10p|\n";
 	// int *num;
-	ft_printf("%.*i", -6, -3);
-	printf("%.*i", -6, -3);
+	ft_printf("|%.*s|\n", 3, "hello");
+	printf("|%.*s|\n", 3, "hello");
 }
