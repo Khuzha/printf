@@ -5,7 +5,7 @@
 		if (data->apply_acc && !data->acc && *str == '0' && !str[1])
 			return (data->width);
 		if (data->apply_acc && (data->acc > data->width) && ((data->acc > len)))
-			return (data->acc);
+			return (data->acc + 2);
 		if (data->width > len)
 			return (data->width);
 		return (len + 2);
