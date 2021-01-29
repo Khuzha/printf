@@ -29,7 +29,7 @@ void		print_x(struct data *data, unsigned int value, int *count, int big_letters
 int		ft_printf(const char *format, ...);
 int		count_digits(long n);
 char	*ft_itoa_16(unsigned int value, int big_letters);
-char	*ft_itoa_for_p(unsigned long long value, int big_letters);
+char	*ft_itoa_for_p(unsigned long long value);
 int		ft_max_int(int a, int b);
 
 void	print_data(struct data *data);
