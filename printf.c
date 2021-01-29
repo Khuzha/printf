@@ -100,8 +100,8 @@ void			print_res(struct data *data, va_list ap, int *count)
 		return (print_p(data, va_arg(ap, unsigned long long), count));
 	if (data->type == 'x' || data->type == 'X')
 		return (print_x(data, va_arg(ap, unsigned int), count, (data->type == 'X')));
-	// if (data->type == 'u')
-	// 	return (print_u(data, va_arg(ap, unsigned int), count));
+	if (data->type == 'u')
+		return (print_u(data, va_arg(ap, unsigned int), count));
 }
 
 char	*parser(char *format, int *count, va_list ap)

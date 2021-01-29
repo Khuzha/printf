@@ -28,6 +28,7 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 	char *res;
 
 	i = 0;
+	*str = '0';
 	while (value)
 	{
 		mod = value % 16;
@@ -38,7 +39,7 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 		value /= 16;
 		i++;
 	}
-	str[i] = '\0';
+	str[*str == '0' && ft_strlen(str) == 1 ? 1 : i] = '\0';
 	reverse_str(&res, str, i);
 	return (res);
 }
@@ -90,4 +91,44 @@ void	ft_putchar_count(char c, int *count)
 {
 	ft_putchar_fd(c, 1);
 	(*count)++;
+}
+
+int		count_digits_u(long n)
+{
+	int counter;
+
+	if (n == 0)
+		return (1);
+	counter = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		counter++;
+	}
+	return (counter);
+}
+
+char	*ft_itoa_u(unsigned int n)
+{
+	char	*res;
+	int		len;
+	int		pos;
+	long	num;
+
+	num = n;
+	pos = num >= 0;
+	len = count_digits(num) + (!pos ? 1 : 0);
+	num *= pos ? 1 : -1;
+	if (!(res = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	res[len] = '\0';
+	while (len >= 0)
+	{
+		res[len - 1] = num % 10 + 48;
+		num /= 10;
+		len--;
+	}
+	if (!pos)
+		res[0] = '-';
+	return (res);
 }

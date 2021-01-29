@@ -84,7 +84,7 @@ void			print_u(struct data *data, unsigned int value, int *count)
 		data->apply_acc = 1;
 		data->width = 0;
 	}
-	str = ft_itoa(value);
+	str = ft_itoa_u(value);
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
 	free(str);

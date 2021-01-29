@@ -23,6 +23,6 @@ int main()
 
 	// char *format = "%018.10p|\n";
 	// int *num;
-	ft_printf("|%.*s|\n", 3, "hello");
-	printf("|%.*s|\n", 3, "hello");
+	ft_printf("%%u Lydie == |%u|\n", 'L'+'y'+'d'+'i'+'e');
+	printf("%%u Lydie == |%u|\n", 'L'+'y'+'d'+'i'+'e');
 }

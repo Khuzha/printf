@@ -35,5 +35,6 @@ int		ft_max_int(int a, int b);
 void	print_data(struct data *data);
 void	ft_putstr_count(char *s, int *count);
 void	ft_putchar_count(char c, int *count);
+char	*ft_itoa_u(unsigned int n);
 
 #endif
