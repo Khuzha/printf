@@ -132,6 +132,7 @@ char	*parser(char *format, int *count, va_list ap)
 		if (format[i] == '*')
 			parse_acc_or_w_varg(data, is_acc == 1 ? ((is_acc = 2)) : 0, ap);
 		format[i] == '.' && !is_acc ? is_acc = 1 : 0;
+		format[i] == '.' && format[i + 1] == 'p' ? data->apply_acc = 1 : 0;
 		handle_if_type(format[i], data, &was_one);
 		i++;
 	}

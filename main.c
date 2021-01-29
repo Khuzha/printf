@@ -2,6 +2,6 @@
 
 int main()
 {
-	ft_printf("|%5c|\n", NULL);
-	printf("|%5c|\n", NULL);
+	ft_printf("|%.p|\n", NULL);
+	printf("|%.p|\n", NULL);
 }

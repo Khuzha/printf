@@ -1,6 +1,6 @@
 #include "../printf.h"
 
-	static int	get_str_len(struct data *data, char *str, int len)
+static int	get_str_len(struct data *data, char *str, int len)
 	{
 		if (data->apply_acc && !data->acc && *str == '0' && !str[1])
 			return (data->width);
@@ -77,14 +77,17 @@ void			print_p(struct data *data, unsigned long long value, int *count)
 	char	*str;
 	int		len;
 
+	if (value)
+		str = ft_itoa_for_p(value, 0);
+	else
+		str = (data->apply_acc ? "" : "0");
 	if (data->flag_zero && data->width > data->acc && !data->apply_acc)
 	{
 		data->acc = data->width;
 		data->apply_acc = 1;
 		data->width = 0;
 	}
-	str = ft_itoa_for_p(value, 0);
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
-	free(str);
+	value ? free(str) : 0;
 }
