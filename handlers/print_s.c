@@ -26,7 +26,6 @@ static void	put_str_to_line(struct data *data, char *res, char *src, int len, in
 {
 	int i;
 
-	// print_data(data);
 	if (data->flag_minus)
 		i = 0;
 	else
@@ -53,7 +52,6 @@ void			print_s(struct data *data, char *str, int *count)
 {
 	int len;
 
-	// print_data(data);
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
 }

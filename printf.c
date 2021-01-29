@@ -54,7 +54,6 @@ void		parse_acc_or_w_varg(struct data *data, int is_acc, va_list ap)
 			data->width *= -1;
 		}
 	}
-	// print_data(data);
 }
 
 void		handle_if_type(char c, struct data *data, int *is_type)

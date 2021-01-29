@@ -43,7 +43,6 @@ static void	put_numbers(struct data *data, char *res, char *src, int len, int fu
 	if (data->apply_acc && !data->acc && *src == '0' && !src[1])
 		return ;
 	term = (*src == '-' ? 1 : 0);
-	print_data(data);
 	if (full_len == len + 2 || (data->flag_zero && !data->apply_acc) || data->flag_minus)
 		zerox_term = 0;
 	else
