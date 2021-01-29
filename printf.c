@@ -21,7 +21,7 @@ int			parse_acc_or_w_simple(char *format, struct data *data, int is_acc)
 
 	i = 0;
 	value = ft_atoi(format);
-	if (is_acc)
+	if (is_acc && value >= 0)
 	{
 		data->acc = value;
 		data->apply_acc = 1;
@@ -52,6 +52,7 @@ void		parse_acc_or_w_varg(struct data *data, int is_acc, va_list ap)
 			data->width *= -1;
 		}
 	}
+	// print_data(data);
 }
 
 void		handle_if_type(char c, struct data *data)
@@ -59,6 +60,8 @@ void		handle_if_type(char c, struct data *data)
 	char	*types;
 
 	types = "%cspdiuxX";
+	if (data->flag_minus && data->flag_zero)
+		data->flag_zero = 0;
 	while (*types)
 	{
 		if (*types == c)

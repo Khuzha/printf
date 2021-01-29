@@ -78,13 +78,15 @@ void			print_d(struct data *data, int value, int *count)
 	char	*str;
 	int		len;
 
+	printf("2\n");
+	// print_data(data);
 	if (data->flag_zero && data->width > data->acc && !data->apply_acc)
 	{
 		data->acc = data->width - (value < 0 ? 1 : 0);
 		data->apply_acc = 1;
 		data->width = 0;
 	}
-	print_data(data);
+	// print_data(data);
 	str = ft_itoa(value);
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
