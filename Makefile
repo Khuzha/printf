@@ -3,24 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zskeeter <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 18:40:15 by zskeeter          #+#    #+#              #
-#    Updated: 2021/01/29 06:34:39 by zskeeter         ###   ########.fr        #
+#    Updated: 2021/01/30 01:01:25 by zskeeter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Filenames
 NAME = libftprintf.a
-SRCS =	printf.c utils.c \
-		handlers/print_d.c handlers/print_c.c handlers/print_s.c handlers/print_p.c handlers/print_x.c handlers/print_u.c
+SRC = printf.c utils.c
+HANDLER_FILES = print_d.c print_c.c print_s.c print_p.c print_x.c print_u.c
 
-SRCOBJS = $(SRCS:.c=.o)
+# Directories
+HANDLERS_DIR = handlers
+LIBFT = libft
+OBJs_DIR = objects
 
-$(NAME): $(SRCOBJS) printf.h
+# Preparing
+HANDLERS = $(patsubst %, $(HANDLERS_DIR)/%, $(HANDLER_FILES))
+OBJS = $(patsubst %, $(OBJs_DIR)/%.o, $(SRC) $(HANDLERS))
+
+SRCOBJS = $(SRCS:.c=./objects/.o)
+
+$(NAME): $(OBJS) printf.h
 	make -C libft
-	ar -rcs $(NAME) $(SRCOBJS) libft/*.o
+	ar -rcs $(NAME) $(OBJS) libft/*.o
 
 all: $(NAME)
+
+pr:
+	echo $(HANDLERS)
+	echo $(OBJS)
 
 clean : 
 		rm -rf $(SRCOBJS) 
