@@ -23,6 +23,10 @@ int main()
 
 	// char *format = "%018.10p|\n";
 	// int *num;
-	ft_printf("%%u Lydie == |%u|\n", 'L'+'y'+'d'+'i'+'e');
-	printf("%%u Lydie == |%u|\n", 'L'+'y'+'d'+'i'+'e');
+	// ft_printf("%%u Lydie == |%u|\n", 'L'+'y'+'d'+'i'+'e');
+	// printf("%%u Lydie == |%u|\n", 'L'+'y'+'d'+'i'+'e');
+
+	int r00 = 0;
+	ft_printf("|Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque. %p|\n", 100, "Ly", &r00);
+	printf("|Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque. %p|\n", 100, "Ly", &r00);
 }

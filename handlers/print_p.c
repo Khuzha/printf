@@ -8,7 +8,7 @@
 			return (data->acc);
 		if (data->width > len)
 			return (data->width);
-		return (len);
+		return (len + 2);
 	}
 
 static void	inite_str(struct data *data, char *str, int len)
@@ -29,7 +29,7 @@ static void	handle_acc(struct data *data, char *str, char *src, int len)
 	if (!data->acc)
 		return ;
 	if (data->flag_minus)
-		ft_memset(str, '0', data->acc + (*src == '-' ? 1 : 0));
+		ft_memset(str, '0', data->acc);
 	if (!data->flag_minus)
 		ft_memset(&str[len - data->acc], '0', data->acc);
 }
@@ -42,7 +42,6 @@ static void	put_numbers(struct data *data, char *res, char *src, int len, int fu
 
 	if (data->apply_acc && !data->acc && *src == '0' && !src[1])
 		return ;
-	term = (*src == '-' ? 1 : 0);
 	if (full_len == len + 2 || (data->flag_zero && !data->apply_acc) || data->flag_minus)
 		zerox_term = 0;
 	else
