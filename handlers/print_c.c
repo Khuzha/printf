@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_c.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/30 08:25:18 by zskeeter          #+#    #+#             */
+/*   Updated: 2021/01/30 08:25:30 by zskeeter         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../printf.h"
 
 static int	get_str_len(struct data *data)
@@ -35,7 +47,7 @@ static void	make_str(struct data *data, char c, int *count)
 	free(str);
 }
 
-void			print_c(struct data *data, char c, int *count)
+void		print_c(struct data *data, char c, int *count)
 {
 	if (c == 0)
 	{
