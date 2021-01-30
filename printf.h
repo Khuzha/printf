@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 06:19:06 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 09:29:46 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/30 09:35:19 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct	s_lengths
 	int	len;
 	int	f_len;
 }				t_lengths;
-
 
 void			print_c(t_data *data, char c, int *count);
 void			print_d(t_data *data, int value, int *count);
