@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_s.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/30 09:15:39 by zskeeter          #+#    #+#             */
+/*   Updated: 2021/01/30 09:19:34 by zskeeter         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../printf.h"
 
 static int	get_str_len(t_data *data, int len)
@@ -22,38 +34,44 @@ static void	inite_str(t_data *data, char *str, int len)
 	str[i - 1] = '\0';
 }
 
-static void	put_str_to_line(t_data *data, char *res, char *src, int len, int full_len)
+static void	put_str_to_line(t_data *data, char *res, char *src, t_lengths *l)
 {
 	int i;
 
 	if (data->flag_minus)
 		i = 0;
 	else
-		i = pos_or_zero(full_len - (data->apply_acc && data->acc < len ? data->acc : len));
-	ft_memcpy(&res[i], src, (data->apply_acc ? data->acc : len));
+	{
+		i = pos_or_zero(l->f_len - (data->apply_acc && data->acc < l->len ?
+			data->acc : l->len));
+	}
+	ft_memcpy(&res[i], src, (data->apply_acc ? data->acc : l->len));
 }
 
-static void	make_str(t_data *data, char *src, int len, int *count)
+static void	make_str(t_data *data, char *src, t_lengths *lengths, int *count)
 {
 	char	*str;
-	int		full_len;
 
-	full_len = get_str_len(data, len);
-	if (!(str = malloc(sizeof(char) * (full_len + 1))))
+	lengths->f_len = get_str_len(data, lengths->len);
+	if (!(str = malloc(sizeof(char) * (lengths->f_len + 1))))
 		return ;
-	inite_str(data, str, full_len + 1);
-	put_str_to_line(data, str, src, len, full_len);
+	inite_str(data, str, lengths->f_len + 1);
+	put_str_to_line(data, str, src, lengths);
 	ft_putstr_count(str, count);
 	count++;
 	free(str);
 }
 
-void			print_s(t_data *data, char *str, int *count)
+void		print_s(t_data *data, char *str, int *count)
 {
-	int len;
+	int			len;
+	t_lengths	*lengths;
 
+	if (!(lengths = malloc(sizeof(lengths))))
+		return ;
 	if (!str)
 		str = "(null)";
-	len = ft_strlen(str);
-	make_str(data, str, len, count);
+	lengths->len = ft_strlen(str);
+	make_str(data, str, lengths, count);
+	free(lengths);
 }
