@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 08:27:18 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 08:27:19 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/30 08:30:35 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	get_str_len(struct data *data, char *str, int len)
 	return (len);
 }
 
-static void	inite_str(struct data *data, char *str, int len)
+static void	inite_str(t_data *data, char *str, int len)
 {
 	int i;
 
@@ -37,7 +37,7 @@ static void	inite_str(struct data *data, char *str, int len)
 	str[i - 1] = '\0';
 }
 
-static void	handle_acc(struct data *data, char *str, char *src, int len)
+static void	handle_acc(t_data *data, char *str, char *src, int len)
 {
 	if (!data->acc)
 		return ;
@@ -47,7 +47,7 @@ static void	handle_acc(struct data *data, char *str, char *src, int len)
 		ft_memset(&str[len - data->acc], '0', data->acc);
 }
 
-static void	put_numbers(struct data *data, char *res, char *src, int len, int full_len)
+static void	put_numbers(t_data *data, char *res, char *src, int len, int full_len)
 {
 	int i;
 	int term;
@@ -70,7 +70,7 @@ static void	put_numbers(struct data *data, char *res, char *src, int len, int fu
 	ft_memcpy(&res[i], src, len);
 }
 
-static void	make_str(struct data *data, char *src, int len, int *count)
+static void	make_str(t_data *data, char *src, int len, int *count)
 {
 	char	*str;
 	int		full_len;
@@ -86,7 +86,7 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	free(str);
 }
 
-void		print_d(struct data *data, int value, int *count)
+void			print_d(t_data *data, int value, int *count)
 {
 	char	*str;
 	int		len;

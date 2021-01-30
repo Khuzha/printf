@@ -1,5 +1,6 @@
 a.out*
 *.o
+*.a
 42TESTERS-PRINTF/
 pft_2019/
-
+old_pft/

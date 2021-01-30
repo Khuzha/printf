@@ -1,6 +1,6 @@
 #include "printf.h"
 
-void	print_data(struct data *data)
+void	print_data(t_data *data)
 {
 	printf("===\ntype = %c, flag_minus = %d, flag_zero = %d, apply_acc = %d, width = %d, acc = %d\n===\n", data->type, data->flag_minus, data->flag_zero, data->apply_acc, data->width, data->acc);
 }
@@ -29,6 +29,7 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 
 	i = 0;
 	*str = '0';
+	str[1] = '\0';
 	while (value)
 	{
 		mod = value % 16;
@@ -39,12 +40,35 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 		value /= 16;
 		i++;
 	}
+	// printf("str in func = |%s|\n", str);
 	str[*str == '0' && ft_strlen(str) == 1 ? 1 : i] = '\0';
+	// printf("str in func = |%s|\n", str);
 	reverse_str(&res, str, i);
 	return (res);
 }
 
-char	*ft_itoa_for_p(unsigned long long value, int big_letters)
+int		is_type(char c)
+{
+	char	*types;
+
+	types = "%cspdiuxX";
+	while (*types)
+	{
+		if (c == *types)
+			return (1);
+		types++;
+	}
+	return (0);
+}
+
+int		pos_or_zero(int num)
+{
+	if (num >= 0)
+		return (num);
+	return (0);
+}
+
+char	*ft_itoa_for_p(unsigned long long value)
 {
 	int i;
 	int mod;
@@ -58,7 +82,7 @@ char	*ft_itoa_for_p(unsigned long long value, int big_letters)
 		if (mod < 10)
 			str[i] = '0' + mod;
 		else
-			str[i] = mod - 10 + (big_letters ? 'A' : 'a');
+			str[i] = mod - 10 + 'a';
 		value /= 16;
 		i++;
 	}
