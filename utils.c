@@ -29,6 +29,7 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 
 	i = 0;
 	*str = '0';
+	str[1] = '\0';
 	while (value)
 	{
 		mod = value % 16;
@@ -39,7 +40,9 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 		value /= 16;
 		i++;
 	}
+	// printf("str in func = |%s|\n", str);
 	str[*str == '0' && ft_strlen(str) == 1 ? 1 : i] = '\0';
+	// printf("str in func = |%s|\n", str);
 	reverse_str(&res, str, i);
 	return (res);
 }

@@ -84,7 +84,10 @@ void			print_x(struct data *data, unsigned value, int *count, int big_letters)
 		data->apply_acc = 1;
 		data->width = 0;
 	}
+	// printf("value = %u\n", value);
+	// print_data(data);
 	str = ft_itoa_16(value, big_letters);
+	// printf("str = |%s|\n", str);
 	len = ft_strlen(str);
 	make_str(data, str, len, count);
 	free(str);
