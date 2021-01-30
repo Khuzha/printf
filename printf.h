@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 06:19:06 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 06:33:53 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/30 09:00:26 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ typedef	struct	s_data
 	int		width;
 	int		acc;
 }				t_data;
+
+typedef struct	s_lengths
+{
+	int	len;
+	int	f_len;
+}				t_lengths;
+
 
 void			print_c(t_data *data, char c, int *count);
 void			print_d(t_data *data, int value, int *count);
@@ -55,5 +62,6 @@ void			handle_if_type(char c, t_data *data, int *is_type);
 int				parse_acc_or_w_simple(char *format,
 					t_data *data, int is_acc);
 void			parse_acc_or_w_varg(t_data *data, int is_acc, va_list ap);
+int				get_str_len_d(t_data *data, char *str, int len);
 
 #endif
