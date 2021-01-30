@@ -40,4 +40,10 @@ char	*ft_itoa_u(unsigned int n);
 int		is_type(char c);
 int		pos_or_zero(int num);
 
+int		is_format_char(char c);
+void	initialize_data(t_data *data);
+void	handle_if_type(char c, struct data *data, int *is_type);
+int		parse_acc_or_w_simple(char *format, struct data *data, int is_acc);
+void	parse_acc_or_w_varg(struct data *data, int is_acc, va_list ap);
+
 #endif

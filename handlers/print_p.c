@@ -24,7 +24,7 @@ static void	inite_str(struct data *data, char *str, int len)
 	str[i - 1] = '\0';
 }
 
-static void	handle_acc(struct data *data, char *str, char *src, int len)
+static void	handle_acc(struct data *data, char *str, int len)
 {
 	if (!data->acc)
 		return ;
@@ -37,7 +37,6 @@ static void	handle_acc(struct data *data, char *str, char *src, int len)
 static void	put_numbers(struct data *data, char *res, char *src, int len, int full_len)
 {
 	int i;
-	int term;
 	int zerox_term;
 
 	if (data->apply_acc && !data->acc && *src == '0' && !src[1])
@@ -65,7 +64,7 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	if (!(str = malloc(sizeof(char) * (full_len + 1))))
 		return ;
 	inite_str(data, str, full_len + 1);
-	handle_acc(data, str, src, full_len);
+	handle_acc(data, str, full_len);
 	put_numbers(data, str, src, len, full_len);
 	ft_putstr_count(str, count);
 	count++;
@@ -77,7 +76,6 @@ void			print_p(struct data *data, unsigned long long value, int *count)
 	char	*str;
 	int		len;
 
-	// print_data(data);
 	if (value)
 		str = ft_itoa_for_p(value);
 	else
