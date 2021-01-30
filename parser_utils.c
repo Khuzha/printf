@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 05:39:21 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 05:40:14 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/30 06:33:45 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	initialize_data(t_data *data)
 	data->acc = 0;
 }
 
-void	handle_if_type(char c, struct data *data, int *is_type)
+void	handle_if_type(char c, t_data *data, int *is_type)
 {
 	char	*types;
 
@@ -56,7 +56,7 @@ void	handle_if_type(char c, struct data *data, int *is_type)
 	}
 }
 
-int		parse_acc_or_w_simple(char *format, struct data *data, int is_acc)
+int		parse_acc_or_w_simple(char *format, t_data *data, int is_acc)
 {
 	int	value;
 	int i;
@@ -75,7 +75,7 @@ int		parse_acc_or_w_simple(char *format, struct data *data, int is_acc)
 	return (i);
 }
 
-void	parse_acc_or_w_varg(struct data *data, int is_acc, va_list ap)
+void	parse_acc_or_w_varg(t_data *data, int is_acc, va_list ap)
 {
 	int value;
 

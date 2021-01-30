@@ -6,13 +6,13 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 05:37:40 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 06:17:15 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/30 06:33:45 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	print_res(struct data *data, va_list ap, int *count)
+void	print_res(t_data *data, va_list ap, int *count)
 {
 	int big_letters;
 
@@ -33,7 +33,7 @@ void	print_res(struct data *data, va_list ap, int *count)
 		return (print_u(data, va_arg(ap, unsigned int), count));
 }
 
-void	handle_flags(char *format, struct data *data, size_t *i)
+void	handle_flags(char *format, t_data *data, size_t *i)
 {
 	if ((*format == '0' && format[1] == '-') ||
 		(*format == '-' && format[1] == '0'))
@@ -44,7 +44,7 @@ void	handle_flags(char *format, struct data *data, size_t *i)
 	}
 }
 
-size_t	parser_loop(char *format, int *was_one, struct data *data, va_list ap)
+size_t	parser_loop(char *format, int *was_one, t_data *data, va_list ap)
 {
 	size_t	i;
 	int		is_acc;

@@ -1,6 +1,6 @@
 #include "../printf.h"
 
-static int	get_str_len(struct data *data, int len)
+static int	get_str_len(t_data *data, int len)
 {
 	if (data->width >= len || (data->apply_acc && data->width >= data->acc))
 		return (data->width);
@@ -9,7 +9,7 @@ static int	get_str_len(struct data *data, int len)
 	return (len);
 }
 
-static void	inite_str(struct data *data, char *str, int len)
+static void	inite_str(t_data *data, char *str, int len)
 {
 	int i;
 
@@ -22,7 +22,7 @@ static void	inite_str(struct data *data, char *str, int len)
 	str[i - 1] = '\0';
 }
 
-static void	put_str_to_line(struct data *data, char *res, char *src, int len, int full_len)
+static void	put_str_to_line(t_data *data, char *res, char *src, int len, int full_len)
 {
 	int i;
 
@@ -33,7 +33,7 @@ static void	put_str_to_line(struct data *data, char *res, char *src, int len, in
 	ft_memcpy(&res[i], src, (data->apply_acc ? data->acc : len));
 }
 
-static void	make_str(struct data *data, char *src, int len, int *count)
+static void	make_str(t_data *data, char *src, int len, int *count)
 {
 	char	*str;
 	int		full_len;
@@ -48,7 +48,7 @@ static void	make_str(struct data *data, char *src, int len, int *count)
 	free(str);
 }
 
-void			print_s(struct data *data, char *str, int *count)
+void			print_s(t_data *data, char *str, int *count)
 {
 	int len;
 
