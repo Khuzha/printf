@@ -40,7 +40,6 @@ void			print_c(struct data *data, char c, int *count)
 	if (c == 0)
 	{
 		ft_putchar_count(0, count);
-		return ;
 	}
 	data->apply_acc = 0;
 	make_str(data, c, count);

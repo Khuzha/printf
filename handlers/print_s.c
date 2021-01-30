@@ -29,7 +29,9 @@ static void	put_str_to_line(struct data *data, char *res, char *src, int len, in
 	if (data->flag_minus)
 		i = 0;
 	else
-		i = pos_or_zero(full_len - (data->apply_acc ? data->acc : len));
+		i = pos_or_zero(full_len - (data->apply_acc && data->acc < len ? data->acc : len));
+	// print_data(data);
+	// printf("i without pos = %d, len = %d, full_len = %d\n", (full_len - (data->apply_acc ? data->acc : len)), len, full_len);
 	ft_memcpy(&res[i], src, (data->apply_acc ? data->acc : len));
 }
 
