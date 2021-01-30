@@ -77,6 +77,7 @@ void			print_p(struct data *data, unsigned long long value, int *count)
 	char	*str;
 	int		len;
 
+	// print_data(data);
 	if (value)
 		str = ft_itoa_for_p(value);
 	else
