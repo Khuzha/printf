@@ -1,15 +1,16 @@
-#include "../printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_p.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/30 09:05:56 by zskeeter          #+#    #+#             */
+/*   Updated: 2021/01/30 09:11:29 by zskeeter         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int	get_str_len(t_data *data, char *str, int len)
-	{
-		if (data->apply_acc && !data->acc && *str == '0' && !str[1])
-			return (data->width);
-		if (data->apply_acc && (data->acc > data->width) && ((data->acc > len)))
-			return (data->acc + 2);
-		if (data->width > len)
-			return (data->width > len + 2 ? data->width : data->width + 2 - (data->width - len));
-		return (len + 2);
-	}
+#include "../printf.h"
 
 static void	inite_str(t_data *data, char *str, int len)
 {
@@ -34,48 +35,57 @@ static void	handle_acc(t_data *data, char *str, int len)
 		ft_memset(&str[len - data->acc], '0', data->acc);
 }
 
-static void	put_numbers(t_data *data, char *res, char *src, int len, int full_len)
+static void	put_numbers(t_data *data, char *res, char *src, t_lengths *l)
 {
 	int i;
 	int zerox_term;
 
 	if (data->apply_acc && !data->acc && *src == '0' && !src[1])
 		return ;
-	if (full_len == len + 2 || (data->flag_zero && !data->apply_acc) || data->flag_minus)
+	if (l->f_len == l->len + 2 ||
+		(data->flag_zero && !data->apply_acc) || data->flag_minus)
 		zerox_term = 0;
 	else
-		zerox_term = (full_len - (data->apply_acc && data->acc >= len ? data->acc : len) - 2);
+	{
+		zerox_term = (l->f_len - (data->apply_acc && data->acc >= l->len ?
+			data->acc : l->len) - 2);
+	}
 	if (data->flag_minus)
-		i = (data->apply_acc && data->acc >= len ? data->acc - len + 2 : 2);
+	{
+		i = (data->apply_acc && data->acc >= l->len ?
+			data->acc - l->len + 2 : 2);
+	}
 	else
-		i = full_len - len;
+		i = l->f_len - l->len;
 	zerox_term = (zerox_term < 0 ? 0 : zerox_term);
 	res[zerox_term] = '0';
-	res[zerox_term + 1] = 'x'; 
-	ft_memcpy(&res[i], src, len);
+	res[zerox_term + 1] = 'x';
+	ft_memcpy(&res[i], src, l->len);
 }
 
-static void	make_str(t_data *data, char *src, int len, int *count)
+static void	make_str(t_data *data, char *src, t_lengths *lengths, int *count)
 {
 	char	*str;
-	int		full_len;
 
-	full_len = get_str_len(data, src, len);
-	if (!(str = malloc(sizeof(char) * (full_len + 1))))
+	lengths->f_len = get_str_len_p(data, src, lengths->len);
+	if (!(str = malloc(sizeof(char) * (lengths->f_len + 1))))
 		return ;
-	inite_str(data, str, full_len + 1);
-	handle_acc(data, str, full_len);
-	put_numbers(data, str, src, len, full_len);
+	inite_str(data, str, lengths->f_len + 1);
+	handle_acc(data, str, lengths->f_len);
+	put_numbers(data, str, src, lengths);
 	ft_putstr_count(str, count);
 	count++;
 	free(str);
 }
 
-void			print_p(t_data *data, unsigned long long value, int *count)
+void		print_p(t_data *data, unsigned long long value, int *count)
 {
-	char	*str;
-	int		len;
+	char		*str;
+	int			len;
+	t_lengths	*lengths;
 
+	if (!(lengths = malloc(sizeof(lengths))))
+		return ;
 	if (value)
 		str = ft_itoa_for_p(value);
 	else
@@ -86,7 +96,8 @@ void			print_p(t_data *data, unsigned long long value, int *count)
 		data->apply_acc = 1;
 		data->width = 0;
 	}
-	len = ft_strlen(str);
-	make_str(data, str, len, count);
+	lengths->len = ft_strlen(str);
+	make_str(data, str, lengths, count);
+	free(lengths);
 	value ? free(str) : 0;
 }

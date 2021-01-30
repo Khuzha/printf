@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 06:19:06 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 09:00:26 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/30 09:03:51 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int				parse_acc_or_w_simple(char *format,
 					t_data *data, int is_acc);
 void			parse_acc_or_w_varg(t_data *data, int is_acc, va_list ap);
 int				get_str_len_d(t_data *data, char *str, int len);
+int				get_str_len_p(t_data *data, char *str, int len);
 
 #endif
