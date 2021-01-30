@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "libft/libft.h"
 
-typedef struct data
+typedef struct s_data
 {
 	char	type;
 	int		flag_minus;
@@ -18,6 +18,8 @@ typedef struct data
 	int		width;
 	int		acc;
 } t_data;
+
+type
 
 void		print_c(struct data *data, char c, int *count);
 void		print_d(struct data *data, int value, int *count);
