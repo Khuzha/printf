@@ -4,7 +4,7 @@
 	{
 		if (data->apply_acc && !data->acc && *str == '0' && !str[1])
 			return (data->width);
-		if (data->apply_acc && (data->acc > data->width) && ((data->acc > len && *str != '-') || (data->acc >= len && *str == '-')))
+		if (data->apply_acc && (data->acc >= data->width) && ((data->acc > len && *str != '-') || (data->acc >= len && *str == '-')))
 			return (data->acc + (*str == '-' ? 1 : 0));
 		if (data->width > len)
 			return (data->width);
