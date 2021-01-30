@@ -15,6 +15,7 @@ typedef struct data
 	int		flag_minus;
 	int		flag_zero;
 	int		apply_acc;
+	int		acc_no_value;
 	int		width;
 	int		acc;
 } t_data;
@@ -36,5 +37,6 @@ void	print_data(struct data *data);
 void	ft_putstr_count(char *s, int *count);
 void	ft_putchar_count(char c, int *count);
 char	*ft_itoa_u(unsigned int n);
+int		is_type(char c);
 
 #endif

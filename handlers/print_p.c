@@ -80,7 +80,7 @@ void			print_p(struct data *data, unsigned long long value, int *count)
 	if (value)
 		str = ft_itoa_for_p(value);
 	else
-		str = (data->apply_acc ? "" : "0");
+		str = (data->acc_no_value ? "" : "0");
 	if (data->flag_zero && data->width > data->acc && !data->apply_acc)
 	{
 		data->acc = data->width;

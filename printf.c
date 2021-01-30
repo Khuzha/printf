@@ -75,14 +75,15 @@ void		handle_if_type(char c, struct data *data, int *is_type)
 	}
 }
 
-void		initialize_data(t_data *src)
+void		initialize_data(t_data *data)
 {
-	src->type = '0';
-	src->apply_acc = 0;
-	src->flag_minus = 0;
-	src->flag_zero = 0;
-	src->width = 0;
-	src->acc = 0;
+	data->type = '0';
+	data->apply_acc = 0;
+	data->acc_no_value = 0;
+	data->flag_minus = 0;
+	data->flag_zero = 0;
+	data->width = 0;
+	data->acc = 0;
 }
 
 void			print_res(struct data *data, va_list ap, int *count)
@@ -132,7 +133,8 @@ char	*parser(char *format, int *count, va_list ap)
 		if (format[i] == '*')
 			parse_acc_or_w_varg(data, is_acc == 1 ? ((is_acc = 2)) : 0, ap);
 		format[i] == '.' && !is_acc ? is_acc = 1 : 0;
-		format[i] == '.' && format[i + 1] == 'p' ? data->apply_acc = 1 : 0;
+		// format[i] == '.' && format[i + 1] == 'p' ? data->apply_acc = 1 : 0;
+		format[i] == '.' && is_type(format[i + 1]) ? data->apply_acc = data->acc_no_value = 1 : 0;
 		handle_if_type(format[i], data, &was_one);
 		i++;
 	}

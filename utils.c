@@ -44,6 +44,20 @@ char	*ft_itoa_16(unsigned int value, int big_letters)
 	return (res);
 }
 
+int		is_type(char c)
+{
+	char	*types;
+
+	types = "%cspdiuxX";
+	while (*types)
+	{
+		if (c == *types)
+			return (1);
+		types++;
+	}
+	return (0);
+}
+
 char	*ft_itoa_for_p(unsigned long long value)
 {
 	int i;
