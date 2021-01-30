@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_c.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/30 08:32:58 by zskeeter          #+#    #+#             */
+/*   Updated: 2021/01/30 08:33:05 by zskeeter         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../printf.h"
 
 static int	get_str_len(t_data *data)
@@ -49,12 +61,8 @@ static void	make_str(t_data *data, char c, int *count)
 	free(str);
 }
 
-void			print_c(t_data *data, char c, int *count)
+void		print_c(t_data *data, char c, int *count)
 {
-	// if (c == 0)
-	// {
-	// 	ft_putchar_count(0, count);
-	// }
 	data->apply_acc = 0;
 	make_str(data, c, count);
 }
