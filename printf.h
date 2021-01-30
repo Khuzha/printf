@@ -38,5 +38,6 @@ void	ft_putstr_count(char *s, int *count);
 void	ft_putchar_count(char c, int *count);
 char	*ft_itoa_u(unsigned int n);
 int		is_type(char c);
+int		pos_or_zero(int num);
 
 #endif

@@ -58,6 +58,13 @@ int		is_type(char c)
 	return (0);
 }
 
+int		pos_or_zero(int num)
+{
+	if (num >= 0)
+		return (num);
+	return (0);
+}
+
 char	*ft_itoa_for_p(unsigned long long value)
 {
 	int i;

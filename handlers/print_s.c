@@ -2,7 +2,7 @@
 
 static int	get_str_len(struct data *data, int len)
 {
-	if (data->width >= len || data->apply_acc && data->width >= data->acc)
+	if (data->width >= len || (data->apply_acc && data->width >= data->acc))
 		return (data->width);
 	if (data->apply_acc && data->acc < len)
 		return (data->acc);
@@ -29,7 +29,7 @@ static void	put_str_to_line(struct data *data, char *res, char *src, int len, in
 	if (data->flag_minus)
 		i = 0;
 	else
-		i = full_len - (data->apply_acc ? data->acc : len);
+		i = pos_or_zero(full_len - (data->apply_acc ? data->acc : len));
 	ft_memcpy(&res[i], src, (data->apply_acc ? data->acc : len));
 }
 

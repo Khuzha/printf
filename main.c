@@ -2,6 +2,6 @@
 
 int main()
 {
-	ft_printf("|%-.09s|\n", "hi low");
-	printf("|%-.15s|\n", "hi low");
+	ft_printf("|%.09s|\n", "hi low");
+	printf("|%.09s|\n", "hi low");
 }
