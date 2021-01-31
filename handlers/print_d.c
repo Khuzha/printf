@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 08:33:53 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 09:20:28 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/31 11:10:57 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static void	make_str(t_data *data, char *src, t_lengths *lengths, int *count)
 	put_numbers(data, str, src, lengths);
 	ft_putstr_count(str, count);
 	free(str);
+	free(src);
 }
 
 void		print_d(t_data *data, int value, int *count)
@@ -95,6 +96,5 @@ void		print_d(t_data *data, int value, int *count)
 	str = ft_itoa(value);
 	lengths->len = ft_strlen(str);
 	make_str(data, str, lengths, count);
-	free(str);
 	free(lengths);
 }

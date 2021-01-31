@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 09:32:34 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 09:32:43 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/31 10:54:38 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void		print_x(t_data *data, unsigned value, int *count, int big_letters)
 	str = ft_itoa_16(value, big_letters);
 	lengths->len = ft_strlen(str);
 	make_str(data, str, lengths, count);
+	free(lengths);
 	free(str);
 }

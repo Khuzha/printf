@@ -6,7 +6,7 @@
 #    By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 18:40:15 by zskeeter          #+#    #+#              #
-#    Updated: 2021/01/30 09:30:10 by zskeeter         ###   ########.fr        #
+#    Updated: 2021/01/31 10:50:45 by zskeeter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,9 @@ d:
 
 t: fclean all
 	gcc -Wall -Wextra -Werror -g main.c libftprintf.a
+
+f: fclean all
+	gcc -Wall -Wextra -Werror -g -fsanitize=address main.c libftprintf.a
 
 w: fclean all
 	gcc -g main.c libftprintf.a
