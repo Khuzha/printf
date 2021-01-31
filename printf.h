@@ -6,14 +6,13 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 06:19:06 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 09:35:19 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/31 11:30:24 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>

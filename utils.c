@@ -1,95 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/31 11:15:12 by zskeeter          #+#    #+#             */
+/*   Updated: 2021/01/31 11:16:18 by zskeeter         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
-
-void	print_data(t_data *data)
-{
-	printf("===\ntype = %c, flag_minus = %d, flag_zero = %d, apply_acc = %d, width = %d, acc = %d\n===\n", data->type, data->flag_minus, data->flag_zero, data->apply_acc, data->width, data->acc);
-}
-
-void	reverse_str(char **res, char *str, int len)
-{
-	int i;
-
-	if (!(*res = ft_strdup(str)))
-		return ;
-	i = 0;
-	while (len)
-	{
-		(*res)[i] = str[len - 1];
-		i++;
-		len--;
-	}
-}
-
-char	*ft_itoa_16(unsigned int value, int big_letters)
-{
-	int i;
-	int mod;
-	char str[256];
-	char *res;
-
-	i = 0;
-	*str = '0';
-	str[1] = '\0';
-	while (value)
-	{
-		mod = value % 16;
-		if (mod < 10)
-			str[i] = '0' + mod;
-		else
-			str[i] = mod - 10 + (big_letters ? 'A' : 'a');
-		value /= 16;
-		i++;
-	}
-	// printf("str in func = |%s|\n", str);
-	str[*str == '0' && ft_strlen(str) == 1 ? 1 : i] = '\0';
-	// printf("str in func = |%s|\n", str);
-	reverse_str(&res, str, i);
-	return (res);
-}
-
-int		is_type(char c)
-{
-	char	*types;
-
-	types = "%cspdiuxX";
-	while (*types)
-	{
-		if (c == *types)
-			return (1);
-		types++;
-	}
-	return (0);
-}
-
-int		pos_or_zero(int num)
-{
-	if (num >= 0)
-		return (num);
-	return (0);
-}
-
-char	*ft_itoa_for_p(unsigned long long value)
-{
-	int i;
-	int mod;
-	char str[256];
-	char *res;
-
-	i = 0;
-	while (value)
-	{
-		mod = value % 16;
-		if (mod < 10)
-			str[i] = '0' + mod;
-		else
-			str[i] = mod - 10 + 'a';
-		value /= 16;
-		i++;
-	}
-	str[i] = '\0';
-	reverse_str(&res, str, i);
-	return (res);
-}
 
 int		ft_max_int(int a, int b)
 {

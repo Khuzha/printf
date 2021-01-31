@@ -6,12 +6,12 @@
 #    By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 18:40:15 by zskeeter          #+#    #+#              #
-#    Updated: 2021/01/31 10:50:45 by zskeeter         ###   ########.fr        #
+#    Updated: 2021/01/31 11:22:35 by zskeeter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRCS =	printf.c utils.c parser_utils.c \
+SRCS =	printf.c utils.c utils_2.c parser_utils.c \
 		handlers/print_d.c handlers/print_c.c handlers/print_s.c \
 		handlers/print_p.c handlers/print_x.c handlers/print_u.c \
 		handlers/print_d_utils.c handlers/print_p_utils.c \
