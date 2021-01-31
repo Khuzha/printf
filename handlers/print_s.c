@@ -6,7 +6,7 @@
 /*   By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 09:15:39 by zskeeter          #+#    #+#             */
-/*   Updated: 2021/01/30 09:19:34 by zskeeter         ###   ########.fr       */
+/*   Updated: 2021/01/31 12:30:51 by zskeeter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static void	make_str(t_data *data, char *src, t_lengths *lengths, int *count)
 
 void		print_s(t_data *data, char *str, int *count)
 {
-	int			len;
 	t_lengths	*lengths;
 
 	if (!(lengths = malloc(sizeof(lengths))))

@@ -6,7 +6,7 @@
 #    By: zskeeter <zskeeter@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 18:40:15 by zskeeter          #+#    #+#              #
-#    Updated: 2021/01/31 11:22:35 by zskeeter         ###   ########.fr        #
+#    Updated: 2021/01/31 12:30:15 by zskeeter         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRCS =	printf.c utils.c utils_2.c parser_utils.c \
 		handlers/print_u_utils.c handlers/print_x_utils.c
 
 SRCOBJS = $(SRCS:.c=.o)
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(SRCOBJS) printf.h
 	make -C libft
